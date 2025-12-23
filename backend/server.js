@@ -19,10 +19,10 @@ app.get("/", (req, res) => {
 });
 
 // Routes
-app.use("/api/demo", demoRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/mpesa/stk", stkRoutes);
-app.use("/api/mpesa/c2b", c2bRoutes);
+app.use("/api/payment", paymentRoutes);
+app.use("/api/trasnsaction", transactionRoutes);
+app.use("/api/c2b", c2bRoutes);
 app.use("/api/logs", logRoutes);
 
 // Start server
