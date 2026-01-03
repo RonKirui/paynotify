@@ -1,8 +1,9 @@
-const express = require("express");
-const { c2bCallback } = require("../controllers/c2bController");
+import express from "express";
+import { c2bCallback } from "./controllers/c2bController.js";
 
 const router = express.Router();
 
-router.post("/callback", c2bCallback); // POST /api/c2b/callback
+// MPesa C2B callback endpoint
+router.post("/callback", c2bCallback);
 
-module.exports = router;
+export default router;

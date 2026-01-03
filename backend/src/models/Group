@@ -1,0 +1,26 @@
+const mongoose = require("mongoose");
+
+const UserSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true,
+        unique: true,
+        trim: true },
+
+    admin: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+
+    tillno: { type: Number, required: true },
+
+    notificationno: {
+        required: true,
+        type: Number,
+        trim: true
+    },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Group", UserSchema);

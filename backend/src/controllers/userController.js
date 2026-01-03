@@ -13,11 +13,12 @@ exports.registerUser = async (req, res) => {
       email,
       password_hash: hashed
     });
-
+    
     res.json({ success: true, user });
   } catch (err) {
     res.status(400).json({ success: false, message: err.message });
   }
+
 };
 
 exports.loginUser = async (req, res) => {

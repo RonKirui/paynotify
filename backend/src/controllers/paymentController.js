@@ -3,7 +3,7 @@ const StkRequest = require("../models/StkRequest");
 const Transaction = require("../models/Transaction");
 const NotificationController = require("./notificationController");
 
-// 1️⃣ Initiate STK Push
+// Initiate STK Push
 exports.initiatePayment = async (req, res) => {
   try {
     const { phoneNumber, amount } = req.body;
@@ -16,7 +16,7 @@ exports.initiatePayment = async (req, res) => {
     });
 
     /**
-     * 🔹 REAL MPesa integration will go here
+     *REAL MPesa integration will go here
      * For now, we simulate success
      */
 
@@ -30,7 +30,7 @@ exports.initiatePayment = async (req, res) => {
   }
 };
 
-// 2️⃣ MPesa Callback Handler
+// MPesa Callback Handler
 exports.paymentCallback = async (req, res) => {
   try {
     const callback = req.body.Body.stkCallback;
@@ -44,7 +44,7 @@ exports.paymentCallback = async (req, res) => {
       rawCallback: req.body,
     });
 
-    // 🔔 Send notification
+    // Send notification
     await NotificationController.sendPaymentNotification(transaction);
 
     res.json({
